@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.automation</groupId>
+    <artifactId>selenium-automation-framework</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>Selenium Automation Framework</name>
+
+
+    <!-- ================================================= -->
+    <!-- PROPERTIES                                        -->
+    <!-- ================================================= -->
+
+    <properties>
+
+        <!-- Java -->
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- TestNG XML -->
+        <suiteXmlFile>testng.xml</suiteXmlFile>
+
+        <!-- Versions -->
+        <selenium.version>4.45.0</selenium.version>
+        <testng.version>7.12.0</testng.version>
+
+        <poi.version>5.4.1</poi.version>
+
+        <extent.version>5.1.2</extent.version>
+
+        <log4j.version>2.25.1</log4j.version>
+
+        <restassured.version>5.5.6</restassured.version>
+        <jackson.version>2.19.2</jackson.version>
+
+        <cucumber.version>7.27.2</cucumber.version>
+        <extent.cucumber.adapter.version>1.14.0</extent.cucumber.adapter.version>
+
+        <mysql.version>9.4.0</mysql.version>
+
+        <!-- Maven plugins -->
+        <compiler.version>3.14.0</compiler.version>
+        <surefire.version>3.5.3</surefire.version>
+
+    </properties>
+
+
+    <!-- ================================================= -->
+    <!-- DEPENDENCIES                                      -->
+    <!-- ================================================= -->
+
+    <dependencies>
+
+
+        <!-- ================================================= -->
+        <!-- 1. SELENIUM -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>org.seleniumhq.selenium</groupId>
+
+            <artifactId>selenium-java</artifactId>
+
+            <version>${selenium.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 2. TESTNG -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>org.testng</groupId>
+
+            <artifactId>testng</artifactId>
+
+            <version>${testng.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 3. APACHE POI -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>org.apache.poi</groupId>
+
+            <artifactId>poi-ooxml</artifactId>
+
+            <version>${poi.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 4. EXTENT REPORTS -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>com.aventstack</groupId>
+
+            <artifactId>extentreports</artifactId>
+
+            <version>${extent.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 5. LOG4J2 API -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>org.apache.logging.log4j</groupId>
+
+            <artifactId>log4j-api</artifactId>
+
+            <version>${log4j.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 6. LOG4J2 CORE -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>org.apache.logging.log4j</groupId>
+
+            <artifactId>log4j-core</artifactId>
+
+            <version>${log4j.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 7. REST ASSURED -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>io.rest-assured</groupId>
+
+            <artifactId>rest-assured</artifactId>
+
+            <version>${restassured.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 8. JSON PATH -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>io.rest-assured</groupId>
+
+            <artifactId>json-path</artifactId>
+
+            <version>${restassured.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 9. JACKSON -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>com.fasterxml.jackson.core</groupId>
+
+            <artifactId>jackson-databind</artifactId>
+
+            <version>${jackson.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 10. CUCUMBER JAVA -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>io.cucumber</groupId>
+
+            <artifactId>cucumber-java</artifactId>
+
+            <version>${cucumber.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 11. CUCUMBER TESTNG -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>io.cucumber</groupId>
+
+            <artifactId>cucumber-testng</artifactId>
+
+            <version>${cucumber.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 12. EXTENT CUCUMBER ADAPTER -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>tech.grasshopper</groupId>
+
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+
+            <version>${extent.cucumber.adapter.version}</version>
+
+        </dependency>
+
+
+        <!-- ================================================= -->
+        <!-- 13. MYSQL -->
+        <!-- ================================================= -->
+
+        <dependency>
+
+            <groupId>com.mysql</groupId>
+
+            <artifactId>mysql-connector-j</artifactId>
+
+            <version>${mysql.version}</version>
+
+        </dependency>
+
+
+    </dependencies>
+
+
+    <!-- ================================================= -->
+    <!-- BUILD                                             -->
+    <!-- ================================================= -->
+
+    <build>
+
+        <plugins>
+
+
+            <!-- ================================================= -->
+            <!-- MAVEN COMPILER -->
+            <!-- ================================================= -->
+
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+
+                <artifactId>maven-compiler-plugin</artifactId>
+
+                <version>${compiler.version}</version>
+
+                <configuration>
+
+                    <source>21</source>
+                    <target>21</target>
+
+                    <encoding>UTF-8</encoding>
+
+                </configuration>
+
+            </plugin>
+
+
+            <!-- ================================================= -->
+            <!-- MAVEN SUREFIRE -->
+            <!-- ================================================= -->
+
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+
+                <artifactId>maven-surefire-plugin</artifactId>
+
+                <version>${surefire.version}</version>
+
+                <configuration>
+
+                    <suiteXmlFiles>
+
+                        <suiteXmlFile>
+                            ${suiteXmlFile}
+                        </suiteXmlFile>
+
+                    </suiteXmlFiles>
+
+                </configuration>
+
+            </plugin>
+
+
+        </plugins>
+
+    </build>
+
+</project>
