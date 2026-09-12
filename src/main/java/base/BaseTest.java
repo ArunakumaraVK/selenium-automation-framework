@@ -31,7 +31,7 @@ public class BaseTest {
         DriverFactory.quitDriver();
     }
 
-    protected WebDriver getDriver() {
+    public WebDriver getDriver() {
 
         return DriverFactory.getDriver();
     }

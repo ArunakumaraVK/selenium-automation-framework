@@ -1,21 +1,14 @@
 package utilities;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-import constants.FrameworkConstants;
-import exceptions.FrameworkException;
-
-public final class ScreenshotUtils {
-
-    private ScreenshotUtils() {
-    }
+public class ScreenshotUtils {
 
     public static String captureScreenshot(
             WebDriver driver,
@@ -23,31 +16,60 @@ public final class ScreenshotUtils {
 
         try {
 
-            File source =
-                    ((TakesScreenshot) driver)
-                            .getScreenshotAs(OutputType.FILE);
+            // Create timestamp
+            String timestamp =
+                    new SimpleDateFormat("yyyyMMdd_HHmmss")
+                            .format(new Date());
 
-            Path destination =
-                    Path.of(
-                            FrameworkConstants.SCREENSHOT_PATH
-                                    + testName
-                                    + "_"
-                                    + System.currentTimeMillis()
-                                    + ".png");
+            // Screenshot folder
+            String screenshotDirectory =
+                    System.getProperty("user.dir")
+                            + "/test-output/screenshots/";
 
-            Files.createDirectories(
-                    destination.getParent());
+            // Create folder if it doesn't exist
+            File directory =
+                    new File(screenshotDirectory);
 
-            Files.copy(
-                    source.toPath(),
-                    destination);
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
 
-            return destination.toString();
+            // Screenshot file path
+            String screenshotPath =
+                    screenshotDirectory
+                            + testName
+                            + "_"
+                            + timestamp
+                            + ".png";
 
-        } catch (IOException e) {
+            // Take screenshot
+            TakesScreenshot takesScreenshot =
+                    (TakesScreenshot) driver;
 
-            throw new FrameworkException(
-                    "Unable to capture screenshot", e);
+            File sourceFile =
+                    takesScreenshot.getScreenshotAs(
+                            OutputType.FILE);
+
+            File destinationFile =
+                    new File(screenshotPath);
+
+            // Copy screenshot
+            sourceFile.renameTo(destinationFile);
+
+            System.out.println(
+                    "Screenshot saved at: "
+                            + screenshotPath);
+
+            // Return path for Extent Report
+            return screenshotPath;
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Failed to capture screenshot: "
+                            + e.getMessage());
+
+            return null;
         }
     }
 }
