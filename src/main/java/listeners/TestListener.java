@@ -37,7 +37,11 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
 
-        extentTest.get().pass("Test Passed");
+        ExtentTest test = extentTest.get();
+
+        if (test != null) {
+            test.pass("Test Passed");
+        }
 
         System.out.println(
                 "TEST PASSED: " +
@@ -51,33 +55,48 @@ public class TestListener implements ITestListener {
                 "TEST FAILED: " +
                 result.getMethod().getMethodName());
 
-        extentTest.get().fail(result.getThrowable());
+        ExtentTest test = extentTest.get();
 
-        try {
+        if (test != null) {
 
-            String screenshotPath =
-                    ScreenshotUtils.captureScreenshot(
-                            DriverFactory.getDriver(),
-                            result.getMethod().getMethodName());
+            if (result.getThrowable() != null) {
+                test.fail(result.getThrowable());
+            }
 
-            extentTest.get().fail(
-                    "Screenshot on Failure",
-                    MediaEntityBuilder
-                            .createScreenCaptureFromPath(screenshotPath)
-                            .build());
+            try {
 
-        } catch (Exception e) {
+                String screenshotPath =
+                        ScreenshotUtils.captureScreenshot(
+                                DriverFactory.getDriver(),
+                                result.getMethod().getMethodName());
 
-            extentTest.get().fail(
-                    "Unable to capture screenshot: "
-                            + e.getMessage());
+                if (screenshotPath != null) {
+
+                    test.fail(
+                            "Screenshot on Failure",
+                            MediaEntityBuilder
+                                    .createScreenCaptureFromPath(
+                                            screenshotPath)
+                                    .build());
+                }
+
+            } catch (Exception e) {
+
+                test.fail(
+                        "Unable to capture screenshot: "
+                                + e.getMessage());
+            }
         }
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
 
-        extentTest.get().skip("Test Skipped");
+        ExtentTest test = extentTest.get();
+
+        if (test != null) {
+            test.skip("Test Skipped");
+        }
 
         System.out.println(
                 "TEST SKIPPED: " +
