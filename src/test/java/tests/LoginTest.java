@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 
 import base.BaseTest;
 import dataproviders.TestDataProvider;
-import pages.HomePage;
-import pages.LoginPage;
+import pages_POM.HomePage;
+import pages_POM.LoginPage;
 import utilities.ConfigReader;
 
 public class LoginTest extends BaseTest {

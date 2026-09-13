@@ -2,6 +2,8 @@ package dataproviders;
 
 import org.testng.annotations.DataProvider;
 
+import utilities.ExcelUtils;
+
 public final class TestDataProvider {
 
     private TestDataProvider() {
@@ -10,22 +12,32 @@ public final class TestDataProvider {
     @DataProvider(name = "invalidLoginData")
     public static Object[][] invalidLoginData() {
 
-        return new Object[][] {
+        String filePath =
+                System.getProperty("user.dir")
+                + "/src/test/resources/testdata/LoginTestData.xlsx";
 
-            {
-                "wrong_user",
-                "wrong_password"
-            },
+        String sheetName = "LoginData";
 
-            {
-                "standard_user",
-                "wrong_password"
-            },
+        Object[][] data = new Object[3][2];
 
-            {
-                "wrong_user",
-                "secret_sauce"
-            }
-        };
+        data[0][0] = ExcelUtils.getCellData(
+                filePath, sheetName, 1, 0);
+
+        data[0][1] = ExcelUtils.getCellData(
+                filePath, sheetName, 1, 1);
+
+        data[1][0] = ExcelUtils.getCellData(
+                filePath, sheetName, 2, 0);
+
+        data[1][1] = ExcelUtils.getCellData(
+                filePath, sheetName, 2, 1);
+
+        data[2][0] = ExcelUtils.getCellData(
+                filePath, sheetName, 3, 0);
+
+        data[2][1] = ExcelUtils.getCellData(
+                filePath, sheetName, 3, 1);
+
+        return data;
     }
 }

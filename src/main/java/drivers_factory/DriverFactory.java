@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import exceptions.FrameworkException;
 
-public final class DriverFactory {
+public final class DriverFactory {	
 
     private static final ThreadLocal<WebDriver> driver =
             new ThreadLocal<>();
@@ -15,7 +15,7 @@ public final class DriverFactory {
     private DriverFactory() {
     }
 
-    public static void initializeDriver(String browser) {
+    public static void initializeDriver(String browser) {		
 
         if (browser == null) {
             throw new FrameworkException(
