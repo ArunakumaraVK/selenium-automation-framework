@@ -35,11 +35,11 @@ public class LoginTest extends BaseTest {
                 homePage.isHomePageDisplayed(),
                 "Home page is not displayed");
 
-//        Assert.assertEquals(
-//                homePage.getPageTitle(),
-//                "Products",
-//                "Page title is incorrect");
-        Assert.assertEquals(homePage.getPageTitle(), "WrongTitle");
+        Assert.assertEquals(
+                homePage.getPageTitle(),
+                "Products",
+                "Page title is incorrect");
+//        Assert.assertEquals(homePage.getPageTitle(), "WrongTitle");   //Want to Make the test failed, add this.
     }
 
 
