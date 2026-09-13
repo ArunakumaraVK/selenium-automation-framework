@@ -1,5 +1,7 @@
 package tests;
 
+import listeners.RetryAnalyzer;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,7 +13,7 @@ import utilities.ConfigReader;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void verifyValidLogin() {
 
         LoginPage loginPage =
@@ -39,14 +41,15 @@ public class LoginTest extends BaseTest {
                 homePage.getPageTitle(),
                 "Products",
                 "Page title is incorrect");
-//        Assert.assertEquals(homePage.getPageTitle(), "WrongTitle");   //Want to Make the test failed, add this.
-    }
 
+        // Assert.assertEquals(homePage.getPageTitle(),"WrongTitle");	//Want to Make the test failed, add this.
+    }
 
     @Test(
         dataProvider = "invalidLoginData",
         dataProviderClass =
-                TestDataProvider.class
+                TestDataProvider.class,
+        retryAnalyzer = RetryAnalyzer.class
     )
     public void verifyInvalidLogin(
             String username,
