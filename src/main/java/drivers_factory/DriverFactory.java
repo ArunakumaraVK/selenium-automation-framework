@@ -22,10 +22,10 @@ public final class DriverFactory {
                     "Browser value cannot be null");
         }
 
-        switch (browser.toLowerCase()) {
+        switch (browser.toLowerCase()) {			//driver creation and ThreadLocal driver management if you want to discuss parallel execution. 
 
-            case "chrome":
-                driver.set(new ChromeDriver());
+            case "chrome":	
+                driver.set(new ChromeDriver());			// different drivers for parallel execution
                 break;
 
             case "firefox":

@@ -19,29 +19,30 @@ public class BasePage {
                 this);
     }
 
-    protected void click(WebElement element) {
+    protected void click(WebElement element) 		// For Click Operation
+    {	
 
         WaitUtils
                 .waitForElementClickable(
                         driver,
                         element)
-                .click();
+                .click();					
     }
 
     protected void type(
             WebElement element,
-            String text) {
+            String text) {							// For Type Operation
 
         WebElement webElement =
                 WaitUtils.waitForElementVisible(
                         driver,
-                        element);
+                        element);				
 
         webElement.clear();
         webElement.sendKeys(text);
     }
 
-    protected String getText(
+    protected String getText(						//For getText Operation
             WebElement element) {
 
         return WaitUtils
@@ -51,7 +52,7 @@ public class BasePage {
                 .getText();
     }
 
-    protected boolean isDisplayed(
+    protected boolean isDisplayed(						// For wait Operations
             WebElement element) {
 
         try {
