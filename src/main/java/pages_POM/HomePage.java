@@ -8,19 +8,19 @@ import base.BasePage;
 
 public class HomePage extends BasePage {
 
-    @FindBy(css = "[data-test='title']")
+    @FindBy(css = "[data-test='title']")		//This identifies the title element on the Home Page.
     private WebElement pageTitle;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public HomePage(WebDriver driver) {				//Constructor, This passes the WebDriver to BasePage.
+        super(driver);								
     }
 
-    public boolean isHomePageDisplayed() {
+    public boolean isHomePageDisplayed() {				//This checks whether the Home Page title is displayed.
 
         return isDisplayed(pageTitle);
     }
 
-    public String getPageTitle() {
+    public String getPageTitle() {						//This retrieves the text of the page title.
 
         return getText(pageTitle);
     }

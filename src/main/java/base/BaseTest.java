@@ -12,26 +12,22 @@ public class BaseTest {
     @BeforeMethod
     public void setup() {
 
-        String browser =
-                ConfigReader.getProperty("browser");
+        String browser = ConfigReader.getProperty("browser");	//To read (Get) the browser from config.properties through ConfigReader
 
-        String url =
-                ConfigReader.getProperty("url");
+        String url = ConfigReader.getProperty("url");		//To read (Get) the application url from config.properties through ConfigReader
 
-        DriverFactory.initializeDriver(browser);
+        DriverFactory.initializeDriver(browser);		//	To open required browser(chrome or Firefox or Edge).
 
-        DriverFactory
-                .getDriver()
-                .get(url);
+        DriverFactory.getDriver().get(url);			//	To open the Application
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    @AfterMethod(alwaysRun = true)					
+    public void tearDown() {					// This code is used for test cleanup/ Teardown. It runs after each TestNG test method and closes the browser.
 
-        DriverFactory.quitDriver();
+        DriverFactory.quitDriver();				
     }
 
-    public WebDriver getDriver() {
+    public WebDriver getDriver() {				//This method is used to get the current WebDriver instance from DriverFactory.
 
         return DriverFactory.getDriver();
     }

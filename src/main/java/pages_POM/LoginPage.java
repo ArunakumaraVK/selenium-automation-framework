@@ -6,46 +6,45 @@ import org.openqa.selenium.support.FindBy;
 
 import base.BasePage;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends BasePage {					
 
-    @FindBy(id = "user-name")
+    @FindBy(id = "user-name")					//Used to locate the username field on the login page.
     private WebElement usernameField;
 
-    @FindBy(id = "password")
+    @FindBy(id = "password")					//Used to locate the password field on the login page.
     private WebElement passwordField;
 
-    @FindBy(id = "login-button")
+    @FindBy(id = "login-button")				//Used to locate the login-button field on the login page.
     private WebElement loginButton;
 
-    @FindBy(css = "[data-test='error']")
+    @FindBy(css = "[data-test='error']")		//Used to get error message..
     private WebElement errorMessage;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {		//Constructor, Used to pass the WebDriver to BasePage
         super(driver);
     }
 
-    public LoginPage enterUsername(
+    public LoginPage enterUsername(				//Used to enter the username. 
             String username) {
 
-        type(usernameField, username);
-
-        return this;
+        type(usernameField, username);			
+        return this;							//return this means it returns the same LoginPage object, which allows method chaining:
     }
 
-    public LoginPage enterPassword(
+    public LoginPage enterPassword(				//Used to enter the password.
             String password) {
 
         type(passwordField, password);
 
-        return this;
+        return this;							//Again, return this supports method chaining.
     }
 
-    public void clickLogin() {
+    public void clickLogin() {					//Used to click the login button.
 
         click(loginButton);
     }
 
-    public HomePage loginWithValidCredentials(
+    public HomePage loginWithValidCredentials(			//This is a business-level reusable method.
             String username,
             String password) {
 
@@ -56,7 +55,7 @@ public class LoginPage extends BasePage {
         return new HomePage(driver);
     }
 
-    public LoginPage loginWithInvalidCredentials(
+    public LoginPage loginWithInvalidCredentials(			//Used for negative login scenarios.
             String username,
             String password) {
 
@@ -67,7 +66,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public String getErrorMessage() {
+    public String getErrorMessage() {						//Used to retrieve the error message displayed on the page.
 
         return getText(errorMessage);
     }
