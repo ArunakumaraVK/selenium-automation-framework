@@ -15,8 +15,7 @@ public final class ConfigReader {
     }
 
     static {
-        try (FileInputStream file =
-                     new FileInputStream(FrameworkConstants.CONFIG_FILE_PATH)) {
+        try (FileInputStream file = new FileInputStream(FrameworkConstants.CONFIG_FILE_PATH)) {
 
             properties.load(file);
 

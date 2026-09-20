@@ -24,7 +24,7 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)					
     public void tearDown() {					// This code is used for test cleanup/ Teardown. It runs after each TestNG test method and closes the browser.
 
-        DriverFactory.quitDriver();				
+        DriverFactory.quitDriver();				// It calls the DriverFactory to quit the browser.	
     }
 
     public WebDriver getDriver() {				//This method is used to get the current WebDriver instance from DriverFactory.

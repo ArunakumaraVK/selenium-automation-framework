@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import base.BasePage;
 
-public class LoginPage extends BasePage {					
+public class LoginPage extends BasePage {		//LoginPage extends BasePage				
 
     @FindBy(id = "user-name")					//Used to locate the username field on the login page.
     private WebElement usernameField;
