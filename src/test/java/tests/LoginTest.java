@@ -27,9 +27,9 @@ public class LoginTest extends BaseTest {		  //LoginTest extends BaseTest, This 
 
         Assert.assertTrue(homePage.isHomePageDisplayed(),"Home page is not displayed");  //Validating the Home Page. This is your actual test validation/assertion.
 
-//        Assert.assertEquals(homePage.getPageTitle(),"Products","Page title is incorrect");	//Yes, this is the correct assertion if the expected page title is "Products"
+        Assert.assertEquals(homePage.getPageTitle(),"Products","Page title is incorrect");	//Yes, this is the correct assertion if the expected page title is "Products"
 
-        Assert.assertEquals(homePage.getPageTitle(),"WrongTitle");	//Want to Make the test failed, add this line instead of above line just for practice.
+//        Assert.assertEquals(homePage.getPageTitle(),"WrongTitle");	//Want to Make the test failed, add this line instead of above line just for practice.
     }
 
     @Test(dataProvider = "invalidLoginData",dataProviderClass = TestDataProvider.class, retryAnalyzer = RetryAnalyzer.class)	//Instead of writing multiple tests for different invalid credentials, the same test method can execute with multiple username/password combinations.
