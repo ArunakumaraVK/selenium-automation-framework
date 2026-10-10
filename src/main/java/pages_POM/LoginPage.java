@@ -24,14 +24,14 @@ public class LoginPage extends BasePage {		//LoginPage extends BasePage
         super(driver);
     }
 
-    public LoginPage enterUsername(				//Used to enter the username. 
+    public LoginPage enterUsername(				// Method,Used to enter the username. 
             String username) {
 
         type(usernameField, username);			
         return this;							//return this means it returns the same LoginPage object, which allows method chaining:
     }
 
-    public LoginPage enterPassword(				//Used to enter the password.
+    public LoginPage enterPassword(				//Method, Used to enter the password.
             String password) {
 
         type(passwordField, password);

@@ -6,10 +6,10 @@ import utilities.ExcelUtils;
 
 public final class TestDataProvider {
 
-    private TestDataProvider() {
+    private TestDataProvider() {				// Private constructor
     }
 
-    @DataProvider(name = "invalidLoginData")
+    @DataProvider(name = "invalidLoginData")	//"@DataProvider" annotation is used for data driven testing
     public static Object[][] invalidLoginData() {
 
         String filePath =

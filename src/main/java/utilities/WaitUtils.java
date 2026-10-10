@@ -14,31 +14,17 @@ public final class WaitUtils {
     private WaitUtils() {
     }
 
-    public static WebElement waitForElementVisible(
-            WebDriver driver,
-            WebElement element) {
+    public static WebElement waitForElementVisible(WebDriver driver,WebElement element) {
 
-        WebDriverWait wait =
-                new WebDriverWait(
-                        driver,
-                        Duration.ofSeconds(
-                                FrameworkConstants.EXPLICIT_WAIT));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT));	//Explicit wait
 
-        return wait.until(
-                ExpectedConditions.visibilityOf(element));
+        return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static WebElement waitForElementClickable(
-            WebDriver driver,
-            WebElement element) {
+    public static WebElement waitForElementClickable(WebDriver driver,WebElement element) {
 
-        WebDriverWait wait =
-                new WebDriverWait(
-                        driver,
-                        Duration.ofSeconds(
-                                FrameworkConstants.EXPLICIT_WAIT));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT));	//Explicit wait
 
-        return wait.until(
-                ExpectedConditions.elementToBeClickable(element));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-}
+}	

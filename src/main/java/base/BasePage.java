@@ -10,23 +10,17 @@ public class BasePage {
 
     protected WebDriver driver;
 
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver) {			// Parameterized constructor for Webdriver initialization
 
         this.driver = driver;
 
-        PageFactory.initElements(
-                driver,
-                this);
+        PageFactory.initElements(driver,this);
     }
 
     protected void click(WebElement element) 		// For Click Operation
     {	
 
-        WaitUtils
-                .waitForElementClickable(
-                        driver,
-                        element)
-                .click();					
+        WaitUtils.waitForElementClickable(driver,element).click();					
     }
 
     protected void type(

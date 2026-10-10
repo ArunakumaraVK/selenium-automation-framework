@@ -24,11 +24,9 @@ public final class ExcelUtils {
             int columnNumber) {
 
         try (
-            FileInputStream file =
-                    new FileInputStream(filePath);
+            FileInputStream file = new FileInputStream(filePath);
 
-            Workbook workbook =
-                    new XSSFWorkbook(file)
+            Workbook workbook = new XSSFWorkbook(file)
         ) {
 
             Sheet sheet =

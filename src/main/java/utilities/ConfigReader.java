@@ -20,8 +20,7 @@ public final class ConfigReader {
             properties.load(file);
 
         } catch (IOException e) {
-            throw new FrameworkException(
-                    "Unable to load config.properties file", e);
+            throw new FrameworkException("Unable to load config.properties file", e);
         }
     }
 
@@ -30,8 +29,7 @@ public final class ConfigReader {
         String value = properties.getProperty(key);
 
         if (value == null || value.isBlank()) {
-            throw new FrameworkException(
-                    "Property not found in config file: " + key);
+            throw new FrameworkException("Property not found in config file: " + key);
         }
 
         return value.trim();

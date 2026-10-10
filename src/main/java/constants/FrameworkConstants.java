@@ -14,5 +14,5 @@ public final class FrameworkConstants {
             System.getProperty("user.dir")
             + "/test-output/screenshots/";
 
-    public static final int EXPLICIT_WAIT = 10;
+    public static final int EXPLICIT_WAIT = 10;					// to provide explicit wait time 
 }
